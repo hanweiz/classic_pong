@@ -8,4 +8,5 @@ PADDLE_HEIGHT = 100
 PADDLE_SPEED = 20
 
 # ball settings
-BALL_SPEED = 10
+BALL_DX = 10
+BALL_DY = 10
