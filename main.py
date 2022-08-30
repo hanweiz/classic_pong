@@ -28,6 +28,19 @@ while is_game_on:
 
     # logic of what happens when ball approaches the top or bottom edge
     if ball.ycor() > ((config.SCREEN_HEIGHT // 2) - 20) or ball.ycor() < -((config.SCREEN_HEIGHT // 2) - 20):
-        ball.bounce()
+        ball.bounce_y()
+    
+    # Detect collision between r_paddle and ball
+    if (ball.distance(right_paddle) < 50 and ball.xcor() > ((config.SCREEN_WIDTH // 2) - 60)) or \
+        (ball.distance(left_paddle) < 50 and ball.xcor() < -((config.SCREEN_WIDTH // 2) - 60)):
+        ball.bounce_x()
+    
+    # Detect r_paddle miss
+    if ball.xcor() > 390:
+        ball.reset_position()
+
+    # Detect l_paddle miss
+    elif ball.xcor() < -390:
+        ball.reset_position()
 
 screen.exitonclick()
