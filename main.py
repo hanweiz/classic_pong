@@ -14,7 +14,7 @@ screen.tracer(0)
 right_paddle = Paddle(position=(config.SCREEN_WIDTH//2 - 30, 0))
 left_paddle = Paddle(position=(-(config.SCREEN_WIDTH//2 - 30), 0)) 
 ball = Ball()
-Scoreboard = Scoreboard()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(right_paddle.move_up, "Up")
@@ -40,9 +40,11 @@ while is_game_on:
     # Detect r_paddle miss
     if ball.xcor() > 390:
         ball.reset_position()
+        scoreboard.l_point()
 
     # Detect l_paddle miss
     elif ball.xcor() < -390:
         ball.reset_position()
+        scoreboard.r_point(sss)
 
 screen.exitonclick()
