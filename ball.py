@@ -10,6 +10,7 @@ class Ball(Turtle):
         self.goto(0, 0)
         self.dx = config.BALL_DX
         self.dy = config.BALL_DY
+        self.move_speed = 0.01
     
     def move(self):
         new_x = self.xcor() + self.dx
@@ -21,7 +22,11 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.dx *= -1
+        self.move_speed /= 1.1
     
     def reset_position(self):
         self.goto(0,0)
+        self.move_speed = 0.01
         self.bounce_x()
+    
+    def speed_up():
