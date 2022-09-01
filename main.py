@@ -45,6 +45,6 @@ while is_game_on:
     # Detect l_paddle miss
     elif ball.xcor() < -390:
         ball.reset_position()
-        scoreboard.r_point(sss)
+        scoreboard.r_point()
 
 screen.exitonclick()
